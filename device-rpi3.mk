@@ -38,7 +38,8 @@ PRODUCT_PACKAGES += \
     wificond \
     wifilogd \
     wpa_supplicant \
-    wpa_supplicant.conf
+    wpa_supplicant.conf \
+    libbt-vendor
 
 # hardware/interfaces
 PRODUCT_PACKAGES += \
