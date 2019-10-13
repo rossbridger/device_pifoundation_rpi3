@@ -76,8 +76,6 @@ BOARD_SEPOLICY_DIRS += device/pifoundation/rpi3/sepolicy
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR := device/pifoundation/rpi3/sepolicy/public
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR := device/pifoundation/rpi3/sepolicy/private
 
-TARGET_FS_CONFIG_GEN := device/pifoundation/rpi3/config.fs
-
 BOARD_EGL_CFG := device/pifoundation/rpi3/egl.cfg
 
 BOARD_GPU_DRIVERS := vc4
