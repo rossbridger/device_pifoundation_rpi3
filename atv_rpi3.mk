@@ -19,7 +19,10 @@
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, device/google/atv/products/treble_atv_common.mk)
+$(call inherit-product, device/google/atv/products/atv_base.mk)
+
+$(call inherit-product, device/pifoundation/rpi3/device-rpi3.mk)
+$(call inherit-product-if-exists, vendor/pifoundation/rpi3/device-vendor-rpi3.mk)
 
 PRODUCT_NAME := atv_rpi3
 PRODUCT_DEVICE := rpi3
@@ -28,14 +31,12 @@ PRODUCT_MODEL := Android TV on bcm2710
 PRODUCT_MANUFACTURER := Raspberry Pi Foundation
 PRODUCT_RESTRICT_VENDOR_FILES := true
 
-PRODUCT_COPY_FILES += device/pifoundation/rpi3/fstab.rpi3:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.rpi3
-
-$(call inherit-product, device/pifoundation/rpi3/device-rpi3.mk)
-$(call inherit-product-if-exists, vendor/pifoundation/rpi3/device-vendor-rpi3.mk)
-
-
 PRODUCT_AAPT_PREF_CONFIG := tvdpi
 PRODUCT_CHARACTERISTICS := tv
+
+# It takes too much GPU memory
+PRODUCT_COPY_FILES += \
+    device/pifoundation/rpi3/bootanimation.zip:system/media/bootanimation.zip
 
 PRODUCT_PACKAGES += \
     Launcher3QuickStep \
